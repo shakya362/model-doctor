@@ -1,11 +1,3 @@
-"""Model Doctor — Streamlit front-end.
-
-Run locally:
-    streamlit run app.py
-
-Deploy: push this repo to GitHub and point Streamlit Community Cloud
-(share.streamlit.io) at app.py — see README.md for the full walkthrough.
-"""
 import tempfile
 from pathlib import Path
 
