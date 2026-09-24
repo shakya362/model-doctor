@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "model-doctor"
+version = "1.0.0"
+description = "Automated ML audit toolkit — inspects a dataset, training pipeline and trained model and reports the failure patterns it finds in plain English."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ashish Kumar" }]
+keywords = ["machine-learning", "audit", "data-leakage", "model-validation", "mlops"]
+
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scikit-learn>=1.3",
+    "joblib>=1.3",
+    "jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+fixtures = ["xgboost>=2.0"]
+dev = ["pytest>=7.4", "xgboost>=2.0"]
+
+[project.scripts]
+model-doctor = "model_doctor.cli:main"
+
+[tool.setuptools]
+packages = ["model_doctor", "model_doctor.checks"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::UserWarning", "ignore::FutureWarning"]
